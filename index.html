@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Votre Nom – créations, installations, graphisme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f6f1;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #2a2a2a;
+      --nav-font: 'Montserrat', sans-serif;
+      --title-font: 'Cormorant Garamond', serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--nav-font);
+      font-weight: 300;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem 3rem;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+      border-bottom: 1px solid #e0ddd6;
+    }
+
+    .logo {
+      font-family: var(--title-font);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--muted); }
+
+    .header-social {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .header-social a {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .header-social a:hover { color: var(--text); }
+
+    /* ─── HERO TITLE ─── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .hero h1 {
+      font-family: var(--title-font);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+
+    .hero p {
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── MASONRY GRID ─── */
+    .grid {
+      columns: 3 300px;
+      column-gap: 6px;
+      padding: 2rem 2rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .grid-item {
+      break-inside: avoid;
+      margin-bottom: 6px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .grid-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease, filter 0.4s ease;
+      filter: brightness(1);
+    }
+
+    .grid-item:hover img {
+      transform: scale(1.03);
+      filter: brightness(0.88);
+    }
+
+    .grid-item .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.2rem 1rem 0.8rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.45));
+      color: white;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .grid-item:hover .caption { opacity: 1; }
+
+    /* ─── FOOTER BAND ─── */
+    footer {
+      border-top: 1px solid #e0ddd6;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+    footer a:hover { color: var(--text); }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem 1.5rem;
+      }
+      nav { gap: 1.2rem; }
+      .header-social { gap: 1rem; }
+      .grid { columns: 2 140px; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="#">Votre Nom</a>
+    <nav>
+      <a href="#installations">Installations</a>
+      <a href="#creations">Créations</a>
+      <a href="#graphisme">Graphisme</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-social">
+      <a href="https://instagram.com/" target="_blank">Instagram</a>
+      <a href="mailto:contact@example.com">E-mail</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Créations &amp; Installations</h1>
+    <p>bois · art · graphisme</p>
+  </section>
+
+  <main class="grid">
+
+    <!-- 
+      Replace each src="https://picsum.photos/..." with your own image paths.
+      Example: src="images/my-photo.jpg"
+      And update the href="#" and caption text for each project.
+    -->
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/a1/600/700" alt="Installation La Vrille" loading="lazy" />
+      <span class="caption">La Vrille</span>
+    </a>
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/b2/600/500" alt="Installation Confident" loading="lazy" />
+      <span class="caption">Confident</span>
+    </a>
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/c3/600/800" alt="Carapace" loading="lazy" />
+      <span class="caption">Carapace</span>
+    </a>
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/d4/600/600" alt="Affluent" loading="lazy" />
+      <span class="caption">Affluent</span>
+    </a>
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/e5/600/750" alt="L'Abraise" loading="lazy" />
+      <span class="caption">L'Abraise</span>
+    </a>
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/f6/600/550" alt="Strates" loading="lazy" />
+      <span class="caption">Strates</span>
+    </a>
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/g7/600/650" alt="Projet graphique 1" loading="lazy" />
+      <span class="caption">Projet graphique</span>
+    </a>
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/h8/600/700" alt="Logo GFA" loading="lazy" />
+      <span class="caption">Identité visuelle</span>
+    </a>
+
+    <a class="grid-item" href="#">
+      <img src="https://picsum.photos/seed/i9/600/500" alt="Courbes de niveaux" loading="lazy" />
+      <span class="caption">Gravure laser</span>
+    </a>
+
+  </main>
+
+  <footer id="contact">
+    <a href="https://instagram.com/" target="_blank">Instagram</a>
+    <a href="mailto:contact@example.com">contact@example.com</a>
+    <br /><br />
+    <span>© Votre Nom – Tous droits réservés</span>
+  </footer>
+
+</body>
+</html>
